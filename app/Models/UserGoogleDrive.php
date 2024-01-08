@@ -12,6 +12,7 @@ class UserGoogleDrive extends Model
     protected $fillable = [
         'email',
         'access_token',
-        'user_id'
+        'user_id',
+        'google_id'
     ];
 }

@@ -4,9 +4,12 @@ namespace Modules\User\Http\Controllers;
 
 use App\Services\User\UserAuthService;
 use App\Traits\ApiResponseTrait;
+use Exception;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
+use Laravel\Socialite\Facades\Socialite;
 use Modules\User\Http\Requests\Auth\LoginRequest;
 use Modules\User\Http\Requests\Auth\RegisterRequest;
 
@@ -36,6 +39,18 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $data = $request->validated();
-        
+    }
+
+    public function callbackLoginGoogle()
+    {
+        try {
+            $response = $this->userAuthService->loginOrSignUpUserGoogle();
+        } catch (Exception $e) {
+            
+        }
+    }
+
+    public function loginWithGoogle() {
+        return Socialite::driver("google")->redirect();
     }
 }

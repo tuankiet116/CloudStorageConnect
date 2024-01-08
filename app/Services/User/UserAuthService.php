@@ -3,6 +3,7 @@
 namespace App\Services\User;
 
 use Illuminate\Support\Facades\Auth;
+use Laravel\Socialite\Facades\Socialite;
 
 class UserAuthService
 {
@@ -18,6 +19,12 @@ class UserAuthService
 
     public function register(array $dataRegister)
     {
+        
+    }
+
+    public function loginOrSignUpUserGoogle()
+    {
+        $googleUser = Socialite::driver("google")->stateless()->user();
         
     }
 }

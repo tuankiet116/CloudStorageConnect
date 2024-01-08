@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('user_google_drives', function (Blueprint $table) {
             $table->id();
+            $table->integer("google_id")->unique();
             $table->string("email");
             $table->string("access_token");
             $table->unsignedBigInteger("user_id");

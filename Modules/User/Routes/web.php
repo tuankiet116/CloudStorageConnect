@@ -11,6 +11,7 @@
 |
 */
 
-Route::prefix('user')->group(function() {
-    Route::get('/', 'UserController@index');
-});
+use Modules\User\Http\Controllers\AuthController;
+
+Route::get("/login-google", [AuthController::class, "loginWithGoogle"]);
+Route::get("/google/callback", [AuthController::class, "callbackLoginGoogle"]);
