@@ -39,6 +39,12 @@ class AuthController extends Controller
     public function register(RegisterRequest $request)
     {
         $data = $request->validated();
+        try {
+            $this->userAuthService->register($data);
+            return response("Register Success");
+        } catch (Exception $e) {
+            Log::error("User register controller error" . $e->getMessage() . " at #" . $e->getLine());
+        }
     }
 
     public function callbackLoginGoogle()

@@ -11,7 +11,8 @@
         "laravel/sanctum": "^3.2",
         "laravel/socialite": "^5.11",
         "laravel/tinker": "^2.8",
-        "nwidart/laravel-modules": "^10.0"
+        "nwidart/laravel-modules": "^10.0",
+        "snowfire/beautymail": "^1.1"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
